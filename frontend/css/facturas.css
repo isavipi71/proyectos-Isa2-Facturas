@@ -1,0 +1,300 @@
+/* estilos para el menu */
+#nav_facturas{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgb(189, 205, 214);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/*botones de la cabecera*/
+#btn-cabecera  {
+    display: flex;  
+}
+
+#btn-cabecera button{  
+    flex: 1;
+    margin: 50px;
+}
+
+/* estilos para el lateral derecho */
+/* #seccion_derecha {
+  position: relative;
+  width: 70%;
+  background-image: url('../img/bubble.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: animatedBackground 10s linear infinite;
+} */
+
+#seccion_derecha {
+  position: relative;
+  width: 70%;
+  background-image: url('../img/fondo.mp4');
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: animatedBackground 10s linear infinite;
+}
+
+#seccion_izquierda.collapsed ~ #seccion_derecha {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+@keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
+
+#seccion_derecha h1{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 4px 4px 6px #50c3e0; 
+    text-align: center;
+    /* dar animacion al titulo */
+    animation: animatedBackground 10s linear infinite;
+}
+#seccion_derecha span {
+    display: block; /* Hace que el span se comporte como un bloque */
+    margin: 0 auto; /* Centra el span */
+    width: 50%; /* Establece el ancho del span al 50% */
+    text-align: justify; /* justifica el texto del span */
+    font-size: 1.3rem; /* Establece el tamaño de fuente del span */
+    line-height: 1.5; /* Establece la altura de línea del span */
+    background: rgba(255, 255, 255, 0.5);/* aplica un fondo transparente al span */ 
+    border-radius: 10px;
+}
+
+#seccion_derecha div {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 2px solid rgb(144, 141, 141);
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/*estilos del formulario */
+#formFactura {
+	display: flex;
+  flex-wrap: wrap;
+  padding: 30px; 
+  background-color: rgb(96, 150, 180);  
+  gap: 20px;
+}
+
+#formFactura > div.factura-columna {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.factura-columna > #idFactura{
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    
+}
+
+.factura-columna > #idFactura:hover{
+    background-color:rgb(189, 205, 214);
+    color: white;
+}
+.factura-columna > #idFactura:focus{
+    border-bottom: 1px solid #000;
+}
+
+/*estilos del encabezado del form */
+.encabezado {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#autocomplete-cliente, #direccion{
+    width: 80%;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    border-bottom: 1px solid #5c5b5b;
+}
+/* estilos dell lado derecho del encabezado */
+.datos_cliente, .datos_factura {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#fecha, #referencia{
+    width: 60%;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    border-bottom: 1px solid #5c5b5b;
+}
+#fecha_vencimiento{
+    width: 57%;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    border-bottom: 1px solid #5c5b5b;
+}
+ #date-time-edit{ /*para manejar el calendario */
+   margin-left: 50px;
+}
+
+
+
+/*estilos del cuerpo de la factura, titulos de la factura */
+
+.detalleFactura{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid  #5c5b5b;
+   
+}
+
+.contenedor-encabezado{
+   
+    padding: 5px;
+    border-right: 1px solid #5c5b5b;
+}
+.contenedor-encabezado:last-child {
+    border-right: none; /* Elimina el borde derecho del último elemento */
+}
+
+
+#formFactura > div.detalleFactura > .contenedor-encabezado{
+    padding: 20px;
+}
+
+
+/*estilos del boton para agregar una linea */
+
+.btn-agregarLinea{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    
+}
+.btn-agregarLinea span{
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    background: rgb(232, 200, 114);
+    color: gray;
+}
+
+.btn-agregarLinea span:hover{
+    cursor: pointer;
+    background-color:rgb(238, 233, 218);
+    box-shadow:10px 10px 10px rgba(0, 0, 0, 0.2) ;
+}
+
+/*estilos del cuerpo de la factura */
+
+#nuevosCampos{
+    width: 100%;
+    text-align: center;
+}
+.nuevaLinea{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.nuevaLinea > input{
+    padding: 20px;
+    text-align: center;
+    border: none;
+
+    background: none;
+}
+
+.nuevaLinea > input:focus{
+    border-bottom: 1px solid #000;
+}
+
+
+/* estilos del precio, calculo y total de la factura */ 
+.calculo{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.total{
+    padding: 30px;
+    border: 1px solid #000;
+    text-align: end;
+}
+.total > div{
+    padding: 10px;
+}
+
+span#impuesto{
+    padding: 10px;
+    border-bottom: 2px solid black;
+}
+
+
+
+/*estilos de los botones guardar, eliminar o volver de la factura */
+.botones_guardarFactura{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+
+}
+.botones_guardarFactura button{
+   margin-top: 20px;
+}
+
+/*estilos del contenedor para ver  la factura */
+
+#contenedorFacturasCreadas {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+
+/* clase oculta para ocultar los modals y secciones */
+.hide{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

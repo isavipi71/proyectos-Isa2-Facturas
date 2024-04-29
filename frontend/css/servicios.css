@@ -1,0 +1,462 @@
+/* Estilos para la página de servicios */
+/* estilos general para navservicios*/
+#nav_servicios{
+  height: 150px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: #aad7d9;
+  color: white;
+  padding: 10px; 
+}
+
+#nav_servicios div.botones button {
+  margin-left: 50px;
+}
+
+#nav_servicios div.botones{
+  margin-right: 50px;
+}
+/* estilos lateral derecho para mostrar el formulario de nuevo servicio */
+#servicios {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#seccion_izquierda.collapsed ~ #servicios {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+#seccion_izquierda.collapsed ~ #servicios_creados{
+   width: 100%;
+  }
+
+  
+
+.informacion {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    background-color: #BDCDD6;
+    padding: 50px;
+}
+
+div.imagen{
+    width: 300px;
+    height: 300px;
+  }
+
+input#subir-imagen{
+    width: 100%;
+  }
+
+.contenido_nombre_servicio>#servicio, #precio{
+    border: none; /* Elimina el borde */
+    outline: none; /* Elimina el contorno al enfocar */
+    background-color: transparent; /* Hace transparente el fondo */
+    border-bottom: 1px solid black; 
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+  
+.contenido_nombre_servicio, .precio{
+    display: flex;
+    flex-direction: column;
+  }
+  
+.tipo{
+    display: flex;
+    margin-bottom: 30px;
+  }
+
+#tipo2{
+    margin-left: 50px;
+  }
+  
+.precio{
+    margin-bottom: 30px;
+  }
+.precio label{
+    margin-bottom: 5px;
+  }
+.precio input{
+    width: 100px;
+    margin-top: 5px;
+  }
+
+/*   
+contenido del textarea- descripcion-informacion adicional */
+.acordeon{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .acordeon-btn {
+    background-color:#93BFCF;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  .acordeon-btn:focus {
+    outline: none;
+  }
+  .acordeon-btn span {
+    margin-left: 5px;
+  }
+  .acordeon-btn.active span {
+    transform: rotate(45deg);
+  }
+
+  .acordeon-contenido {
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-top: 2px;
+  }
+  .acordeon-contenido textarea{
+    width: 100%;
+    height: 100px;
+    border: none;
+    outline: none;
+    background-color: rgb(147, 191, 207);
+    border-radius:5px;
+    padding: 10px;
+  }
+  
+
+  .acordeon-toggle {
+    display: none;
+  }
+  
+  .acordeon-toggle:checked + .acordeon-contenido {
+    background-color: #f1f1f1;
+  }
+  
+  .acordeon-toggle:checked + .acordeon-btn + .acordeon-contenido {
+    display: block;
+    max-height: 500px; /* ajusta este valor según sea necesario */
+  }
+  
+  .contenedor_guardar-deshacer i {
+    margin: 30px 0px 0x 30px;
+    
+  }
+ 
+  
+  .servicio{
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 30%;
+    padding: 5px;
+    box-shadow: inset 0 -3em 3em rgb(196, 221, 242),
+    0 0 0 2px rgb(2, 83, 115),
+    0.3em 0.3em 1em rgb(196, 221, 242);
+    
+  }
+  
+  .servicio button {
+    background-color: transparent; /* Elimina el fondo del botón */
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer;
+    margin-right: 20px; /* Espacio entre los botones */
+  }
+  
+  .servicio button:hover {
+    color: rgb(2, 83, 115); /* Cambia el color del icono al pasar el mouse sobre él */
+  }
+
+/* estilo dl despliegue de todos los servicios */ 
+  #servicios_creados{  /*contenedor de los servicios creados */
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(96, 150, 180);
+    font-size: 14px;
+    background: linear-gradient(to right, #e0f7fa, #b2ebf2);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  #servicios_creados>h2{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  #servicios_creados>#listaServicios{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  
+ /* Estilos para los servicios nuevos- DIV creado con js */
+.servicio_añadido {
+  width: 300px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 5px solid rgba(196,221,242,0.5);
+  border-radius: 5px;
+  background-color:rgb(147, 191, 207);
+  transition: background 0.5s ease;
+  box-shadow: 0px 10px 20px rgba(197, 27, 44, 0.1);
+  transition: all 0.3s ease;
+}
+
+.servicio_añadido p {
+  /* Estilos para los párrafos dentro de cada servicio añadido */
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+}
+.servicio_añadido:hover {
+  background: rgb(96, 150, 180); /* Cambia el color de fondo al pasar el mouse */
+  border-color:  rgba(189, 205, 214, 0,5); /* Cambia el color del borde al pasar el mouse */
+  transform: translateY(-20px); /* Mueve el servicio hacia arriba al pasar el mouse */
+}
+
+/* Estilos para los botones dentro de los servicios */
+.servicio_añadido button {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.5em;
+  background-color:rgb(232, 200, 114);
+  color:  gray;;
+  padding: 0.7em;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  gap: 2em;
+}
+
+.servicio_añadido button:hover {
+  background-color: rgb(255, 243, 207); /* Cambia el color del botón al pasar el mouse */
+}
+
+
+/* estilos del modal de editar el servicio */
+#modal-editar-servicio {
+  width: 100%;
+  min-height: 500px;
+  padding: 1em; /* Añade un poco de espacio alrededor del contenido */
+  border: 5px solid #ccc; /* Añade un borde alrededor del modal */
+  border-radius: 10px; /* Redondea las esquinas del modal */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); /* Añade una sombra al modal */
+  background: rgb(147, 191, 207); /* Añade un fondo al modal */
+  transition: all 0.3s ease; /* Añade una transición a todos los cambios de estilo */
+
+}
+
+#modal-editar-servicio .modal-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+
+#modal-editar-servicio > div.modal-content > h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.modal-content .input-container {
+  width: 60%; /* Ajusta esto al tamaño que quieras */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+}
+
+.modal-content .input-container input, .input-container textarea {
+  width: 100%;
+  font-size: 0.5rem;
+  border: none; /* Elimina el borde */
+  outline: none; /* Elimina el contorno al enfocar */
+  background-color: transparent; /* Hace transparente el fondo */
+  border-bottom: 1px dotted black; /* Añade un borde inferior */
+}
+
+.modal-content input:focus, textarea:focus {
+  border-bottom: 1px solid black; /* Cambia el borde inferior al enfocar */
+}
+.modal-content label {
+  text-align: left;
+  font-size: 0.8rem; /* Establece el tamaño de fuente de las etiquetas */
+  font-weight: bold; /* Establece el peso de las etiquetas a negrita */
+  margin-bottom: 20px; /* Añade un margen inferior a las etiquetas */
+  margin-top: 20px;
+}
+
+.modal-footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top:50px;
+}
+
+#modal-editar-servicio button#btn-guardar-editar,#btn-volver {
+  padding: 0.8em 1em; /* Añade un poco de espacio alrededor del texto del botón */
+  color: gray; /* Cambia el color del texto del botón a blanco */
+  background-color: rgb(232, 200, 114); /* Cambia el color de fondo del botón a azul */
+  border: none; /* Elimina el borde del botón */
+  border-radius: 5px; /* Redondea las esquinas del botón */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el botón */
+  transition: all 0.3s ease; /* Añade una transición a todos los cambios de estilo */
+  margin-top:40px;
+  font-weight: 800;
+}
+
+#modal-editar-servicio button#btn-guardar-editar:hover, #btn-volver:hover {
+  background-color: rgb(255, 243, 207); /* Cambia el color de fondo del botón al pasar el mouse sobre él */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); /* Añade una sombra al botón al pasar el mouse sobre él */
+  transform: translateY(5px); /* añade movimiento hacia abajo al pasar el mouse sobre él */ 
+}
+
+  /* clase oculto para el div servicios */
+  .oculto{
+    display: none !important;
+  }
+
+/* estilos de la seccion derecha */
+
+#seccion_derecha {
+  position: relative;
+  width: 70%;
+  background-image: url('../img/bubble.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: animatedBackground 10s linear infinite;
+}
+#seccion_izquierda.collapsed ~ #seccion_derecha {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+@keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
+}
+
+#seccion_derecha h1{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 4px 4px 6px #50c3e0; 
+  text-align: center;
+  /* dar animacion al titulo */
+  animation: animatedBackground 10s linear infinite;
+}
+
+#seccion_derecha span {
+  display: block; /* Hace que el span se comporte como un bloque */
+  margin: 0 auto; /* Centra el span */
+  margin-top: 100px;
+  width: 50%; /* Establece el ancho del span al 50% */
+  text-align: justify; /* justifica el texto del span */
+  font-size: 1rem; /* Establece el tamaño de fuente del span */
+  line-height: 1.5; /* Establece la altura de línea del span */
+  background: rgba(255, 255, 255, 0.5);/* aplica un fondo transparente al span */ 
+  border-radius: 10px;
+  padding: 20px;
+}
+#seccion_derecha div {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Hace que los divs sean círculos */
+  background-size: cover;
+  animation: moveCircle 8s infinite;
+}
+
+#seccion_derecha .div1 {
+  top: -10px;
+  left: 5%;
+  background-image: url('../img/casa.png');
+}
+
+#seccion_derecha .div2 {
+  top: 60%;
+  left: 30%;
+  background-image: url('../img/hogar.jpeg');
+}
+
+#seccion_derecha .div3 {
+  top: 20%;
+  left: 40%;
+  background-image: url('../img/lim_escaleras.jpeg');
+}
+
+#seccion_derecha .div4 {
+  top: 50%;
+  left: 70%;
+  background-image: url('../img/abrillantado.jpeg');
+}
+
+#seccion_derecha .div5 {
+  top: 10%;
+  left: 70%;
+  background-image: url('../img/limpieza_fondo.jpeg');
+}
+
+@keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
+}
+
+@keyframes moveCircle {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(100px, 0); }
+  50% { transform: translate(100px, 100px); }
+  75% { transform: translate(0, 100px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Estilos del contenedor para los clientes existentes */
+
+/* Animación */
+@keyframes fade-in-out {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+#clientesCreados > h2::before,
+#clientesCreados > h2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  animation: fade-in-out 2s ease-in-out infinite;
+}
+
+/* Estilos de la lista de clientes */
+#clientesCreados ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+#clientesCreados ul li {
+  margin: 0 10px;
+}

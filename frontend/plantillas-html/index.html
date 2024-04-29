@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- JS -->
+    <script src="../js/index.js" type="module" defer></script>
+    <!-- script de jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <title>Home</title>
+</head>
+
+<body>
+  <header>
+    <nav id="navPrincipal">
+    <div id="logo">
+        <img src="../img/logo.png" alt="Logo de la empresa">
+    </div>
+    <ul>
+      <li><a href="acerca_de.html">Acerca de</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div id="info_contacto">
+      <h1>Limcaf</h1>
+      <p>Servicios Integrales de Limpieza</p>
+      <p>Calle 123, Madrid, España</p>
+      <p>Tel: +34 600 651 231</p>
+      <p>Email: limcaf@empresa.com</p>
+    </div>
+  <button id="cerrar_sesion"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+  </nav>
+</header>
+
+<div class="contenedor-secciones">	
+
+<div id="seccion_izquierda">
+    <div class="menu-hamburguesa" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="contenedor">
+      <div class="contenedor_menu">
+        <a href="../plantillas-html/index.html">  <!-- Enlace de regreso al index.html -->
+          <img src="../img/home_263115.png" alt="inicio">
+          <span class="menu-text">Home</span>
+        </a>
+      </div>
+    
+    <div class="contenedor_menu"> 
+      <a href="../plantillas-html/facturas.html">
+        <img src="../img/factura.png" alt="facturas">
+        <span class = "menu-text">Facturas</span>
+      </a> 	
+    </div>
+
+    <div class="contenedor_menu">
+      <a href="../plantillas-html/clientes.html">
+        <img src="../img/business-people.png" alt="">
+        <span class = "menu-text">Clientes</span>
+      </a>
+      </div>
+    
+    <div class="contenedor_menu">
+     <a href="../plantillas-html/servicios.html">
+      <img src="../img/public-service.png"  alt="servicios">
+      <span class = "menu-text">Servicios</span>
+     </a>
+    </div>
+
+    <div class="contenedor_menu">  
+      <a href="../plantillas-html/empleados.html">
+        <img src="../img/employees.png"alt="empleados">
+        <span class = "menu-text"> Empleados</span>
+      </a>
+    </div>
+
+    <div class="contenedor_menu">
+      <a href="../plantillas-html/reportes.html">
+      <img src="../img/reporte-de-negocios.png" alt="dashboard">
+      <span class = "menu-text">Reportes</span>
+      </a>   
+    </div>
+
+    <div class="contenedor_menu">
+      <a href="../plantillas-html/tareas.html">
+      <img  src="../img/tareas.png"  alt="">
+      <span class = "menu-text">Tareas</span>
+      </a>   
+    </div>
+  </div>
+</div>
+
+
+
+<div id="seccion_derecha_index">
+  <div class="burbujas"></div>
+  <div class="contenido">
+  <h1>Bienvenido a Limcaf</h1>
+  <p class="mover-arriba"> En esta aplicación podrás gestionar servicios y clientes.</p>
+  <p class="mover-arriba">Selecciona una opción del menú para comenzar.</p>  
+  </div>
+</div>
+
+</div>
+  
+<footer>
+ 
+    <div class="footer-container">
+        <div class="logo-container">
+            <img src="../img/logo.png" alt="Logo de la empresa de servicios de limpieza">
+        </div>
+        <div class="social-icons">
+            <a href="#"> <i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> Dirección: Calle Nill 11, Barcelona, España</p>
+            <p><i class="fas fa-phone"></i> Teléfono: +34 931 456 789</p>
+            <p><i class="fas fa-envelope"></i> Correo electrónico: limcaf@empresa.com</p>
+        </div>
+        <div class="page-info">
+            <p><a href="#">Política de privacidad</a></p>
+            <p><a href="#">Términos y condiciones</a></p>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Empresa de Limpieza. Todos los derechos reservados.</p>
+        </div>
+        <div class="trust-seals">
+            <img src="../img/calidad2.png" alt="Sello de confianza 1">
+            <img src="../img/calidad-Photoroom.png-Photoroom.png" alt="Sello de confianza 2">
+        </div>
+    </div>
+
+</footer>
+
+  
+
+<script>
+  $(function(){
+    // Al hacer clic en el enlace a servicios...
+    $('.contenedor_menu a').click(function(e) {
+        // Prevenir la acción por defecto del enlace
+        e.preventDefault()
+        // Ocultar el nav principal
+        $('#navPrincipal').hide();
+        // Mostrar el nav de servicios
+        $('#nav_servicios').show(); 
+        // Cargar la página de servicios en #seccion_izquierda
+        $('#seccion_izquierda').load('servicios.html');
+        $('#footer').load('index.html footer > *');
+    });
+});
+</script> 
+
+</body>
+</html>
+
+
+
+ 
+
+
+

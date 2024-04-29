@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+   min-height: 100vh;
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /* overflow: hidden; Evita el desplazamiento vertical  */
+    /* position: relative; Asegura que las burbujas se posicionen correctamente */
+}
+/* estilos del nav */
+ #navPrincipal {
+    color: black; /* Color del texto */
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease; /* Transición suave */
+    background: linear-gradient(to bottom, rgb(96, 150, 180) 0%, rgb(147, 191, 207) 33%, rgb(189, 205, 214) 66%, rgb(238, 233, 218) 100%); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra */
+  }
+/* Estilos para el efecto de triple fondo iluminado */ 
+   #navPrincipal:hover {
+    background-position: 10% 100%; /* Mover gradiente al pasar el ratón */
+  }
+/* estsilos del logo */
+#logo img {
+    width: 100px; /* Ancho del logo */
+    height: auto; /* Altura automática para mantener la proporción */
+  }
+  /* estilos de los enlaces a acerca de y contacto */
+  
+#navPrincipal ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+#navPrincipal ul li {
+    display: inline;
+  }
+  
+#navPrincipal ul li a {
+    color: black; /* Color del enlace */
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.3s ease; /* Transición suave */
+  }
+  
+#navPrincipal ul li a:hover {
+    background-color: rgb(232, 200, 114);/* Color de fondo al pasar el ratón */
+  }
+  
+  /* Estilos para el título de la aplicación */
+#navPrincipal #info_contacto h1 {
+    font-size: 35px; /* Tamaño del título */
+    margin: 0;
+    padding: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra del texto */
+  }
+  
+#navPrincipal #info_contacto p {
+   line-height: 1.6rem;
+   font-size: 12px;
+  }
+#navPrincipal button{
+    background-color: rgb(96, 150, 180);
+}  
+  
+
+/* estilos del toggle */
+.menu-hamburguesa {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 20px ;  
+}
+.menu-hamburguesa i {
+    font-size: 50px;
+    color: rgb(147, 191, 207);
+    margin-bottom: 20px;
+}
+
+/* estilos del contenedor de secciones */
+.contenedor-secciones {
+    display: flex;
+}
+/* estilos del aside lado izquierdo*/
+#seccion_izquierda{
+    width: 30%;
+    transition: width 0.3s ease;
+    background: linear-gradient(45deg, #92c7cf, #e5e1da, #aad7d9, #fbf9f1);
+}
+
+#seccion_izquierda .contenedor{
+    margin-top: 50px;
+}
+
+#seccion_izquierda span.menu-text{
+    display: inline;
+    margin-left: 20px;
+}
+#seccion_izquierda:hover .menu-text {
+    display: inline;
+} 
+
+#seccion_izquierda.collapsed {
+    width: 80px;
+}
+  
+#seccion_izquierda.collapsed span.menu-text {
+    display: none;
+}
+/* estilos del contenedor de los enlaces */
+.contenedor_menu {
+    padding: 30px;
+}
+
+.contenedor_menu > a > img {
+    max-width: 24px;
+    height: auto;
+    margin-right: 5px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 800;
+    color: black;
+}
+    
+a:hover, .menu-text:hover {
+    line-height: 1.5rem;
+    background-color:rgb(96, 150, 180);
+    padding: 10px;
+    border-radius: 10px;
+    transform: scale(1.1) translateX(20px);
+    transition: all 0.3s ease;
+}
+a:hover img {
+    transform: scale(1.1) translateX(25px);
+    transition: all 0.3s ease;
+}
+
+/* Estilo general para los botones */
+button {
+    font-family: "Tenor Sans", sans-serif;
+    background-color: rgb(232, 200, 114);
+    padding: 20px;
+    color: gray;
+    border: none;
+    border-radius: 10px;
+    box-shadow:10px 10px 10px rgba(0, 0, 0, 0.2) ;
+    cursor: pointer;
+    transition: background-color 0.3s;   
+}
+/* Estilo para los botones al pasar el mouse */
+button:hover {
+    background-color:rgb(255, 243, 207);
+    color: black;
+    font-weight: 800;
+    transform: scale(1.1) translateX(20px);
+    transition: all 0.3s ease;
+}
+
+ 
+/* estilos de la seccion derecha */
+#seccion_derecha_index {
+    position: relative;
+    width: 70%;
+    background-color: rgb(96,150,180);
+}
+
+  .burbujas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/burbujitas.png');
+    background-size: cover;
+    animation: moverBurbujas 10s linear infinite;
+  }  
+/* Animación de las burbujas */
+@keyframes moverBurbujas {
+    0% {
+        background-position: 0 0; /* Inicio de la animación */
+    }
+    100% {
+        background-position: 0 1000px; /* Fin de la animación, mueve la imagen hacia abajo */
+    }
+}
+
+/* ewstilos para cuando este colapsado el lado izquierdo la seccion derecha ocupe todo el ancho */
+
+#seccion_izquierda.collapsed 
+~  #seccion_derecha_index {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.contenido{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 4px 4px 6px rgb(147, 191, 207);
+    text-align: center;
+    animation: animatedBackground 10s linear infinite;
+}
+
+.contenido p{
+    width: 60%; 
+    display: block; /* Hace que el span se comporte como un bloque */
+    margin: 0 auto; /* Centra el span */
+    margin-bottom: 50px;
+    padding: 40px;
+    text-align: justify; /* justifica el texto del span */
+    font-size: 1rem; /* Establece el tamaño de fuente del span */
+    line-height: 1.5; /* Establece la altura de línea del span */
+    background:rgb(96, 150, 180);/* aplica un fondo transparente al span */ 
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 5% 80%);
+    cursor: pointer;  
+}
+
+.mover-arriba:hover {
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+/* estilos del footer */
+
+footer {
+    /* background: linear-gradient(to bottom, rgb(96, 150, 180) 0%, rgb(147, 191, 207) 33%, rgb(189, 205, 214) 66%, rgb(238, 233, 218) 100%); */
+    background: linear-gradient(45deg, #92c7cf, #e5e1da, #aad7d9, #fbf9f1);
+    text-align: center;
+}
+
+.footer-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+    align-items: center;
+}
+.logo-container{
+    width: 15%;
+    margin-top: 20px;
+}
+
+.logo-container img {
+	width: 100px; 
+}
+.social-icons{
+    width: 15%;
+}
+
+.social-icons a {
+    width: 25%;
+	margin: 0 10px;
+}
+.contact-info{
+    width: 45%;
+    display: flex;
+    justify-content: flex-start;
+}
+.contact-info p {
+	width: 230px;
+    margin: 5px 0;
+    font-size: 15px;
+}
+.page-info{
+    width: 25%;
+}
+
+.page-info p {
+	margin: 5px 0;
+}
+
+.page-info a {
+	color: #333;
+}
+
+.page-info a:hover {
+	color: #666;
+}
+.copyright{
+    width: 50%;
+}
+.copyright p {
+	margin: 20px 0;
+	color: #666;
+	font-size: 14px;
+}
+.trust-seals{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.trust-seals img {
+	width: 100px;
+	margin: 20px;
+}
+.trust-seals :nth-child(1){
+    width:80px;
+
+}
+
+   /* estilo para ocultar una seccion o modal */
+.hide {
+    display: none  !important;
+}
+
+
+
+
+
+
+

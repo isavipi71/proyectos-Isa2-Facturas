@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- estilos de font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- estilos de favicion -->
+		<link rel="icon" type="image/png" href="../img/business-people.png">
+    <!-- estilos de css --> 
+    <link rel="stylesheet" href="../css/clientes.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- script de alertas -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../js/alertas.js" defer></script>
+    <!-- scripts de clientes.js -->
+    <script type="module" src="../js/servicios.js" defer></script>
+    <script type="module" src="../js/clientes2.js"  defer></script>
+    <script src="../js/index.js" defer></script>
+    <!-- script de jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Clientes</title>
+</head>
+
+<body>
+  <header>
+    <nav id="nav-clientes">
+      <div class="botones"> 
+        <button type="button" id="agregar_cliente"> <i class="fas fa-plus"></i> Nuevo Cliente</button>
+        <button type="button" id="ver-clientes"><i class="fas fa-eye"></i>Clientes</button>
+      </div>
+    </nav>
+  </header>
+  
+  <div class="contenedor-secciones">
+    
+    <div id="seccion_izquierda"></div>
+    <div id="seccion_derecha">
+      <video id="videoFondo" autoplay muted loop>
+        <source src="../videos/videoClientes.mp4" type="video/mp4">
+        Tu navegador no soporta videos.
+      </video>
+    </div>
+    
+    <div id="tarjeta" class="hide">
+      <div class="informacion">
+        <div class="tipo">
+          <input type="radio" id="cliente" value="cliente">
+          <label for="cliente">Cliente</label>
+
+          <input type="radio" id="compania" value="compania">
+          <label for="compania">Compañía</label>
+        </div>
+      </div>
+      
+      <div class="nombre">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre">
+      </div>
+
+      <div class="nif">
+        <label for="nif">NIF:</label>
+        <input type="text" id="nif">
+      </div>
+      
+      <div class="direccion">
+        <h3>Dirección:</h3>
+        <div class="calle">
+          <label for="calle">Calle:</label>
+          <input type="text" id="calle">
+        </div>
+        
+        <div class="provincia">
+          <label for="provincia">Provincia:</label>
+          <select id="provincia" name="provincia">
+            <option value="vacio"></option>
+            <option value="barcelona">Barcelona</option>
+            <option value="girona">Girona</option>
+            <option value="lleida">Lleida</option>
+            <option value="tarragona">Tarragona</option>
+          </select>
+        </div>
+
+        <div class="ciudad">
+          <label for="ciudad">Ciudad:</label>
+          <input type="text" id="ciudad">
+        </div>
+
+        <div class="codigo-postal">
+          <label for="codigopostal">Código Postal:</label>
+          <input type="text" id="codigopostal">
+        </div>
+
+        <div class="pais">
+          <label for="pais">País:</label>
+          <input type="text" id="pais">
+        </div>
+      </div>
+      
+      <div class="contacto">
+        <div class="telefono">
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" id="telefono">
+        </div>
+        
+        <div class="movil">
+          <label for="movil">Móvil:</label>
+          <input type="tel" id="movil">
+        </div>
+
+        <div class="correo-electronico">
+          <label for="correoelectronico">Correo Electrónico:</label>
+          <input type="email" id="correoelectronico">
+        </div>
+      </div>
+    
+      <div class="btns">
+      <!-- <button type="button" id="btnAgregarCliente"> Agregar</button> -->
+        <button type="button" id="btnGuardarClientes"><i class="fas fa-save"></i> Guardar</button>
+      </div>
+    
+    </div>
+
+    <div id="clientesCreados" class="hide"> 
+      <h2>Mis Clientes</h2>
+			<div id="listadoClientes">
+				<!-- Aquí se insertarán los clientes -->	
+			</div>
+    </div>
+
+     <!-- Modal para editar cliente  -->
+		<div id="modal-editar-cliente" class="hide">
+  		<div class="modal-content">
+        <h4>Editando al Cliente.....</h4>
+        <p><i class="fa-solid fa-user-large"></i></p>
+        <!-- <label for="id-editar">Id</label>
+        <input type="text" id="id-editar" required> -->
+        <label for="nombre-editar">Nombre</label>
+        <input type="text" id="nombre-editar" required>
+        <label for="Nif-editar">Nif</label>
+        <input type="text" id="Nif-editar" required>
+        <label for="calle-editar">Calle</label>
+        <input type="text" id="calle-editar">
+        <label for="provincia-editar">Provincia</label>
+        <input type="text" id="provincia-editar">
+        <label for="ciudad-editar">Ciudad</label>
+        <input type="text" id="ciudad-editar">
+        <label for="codigo-postal-editar">Código Postal</label>
+        <input type="text" id="codigo-postal-editar">
+        <label for="pais-editar">País</label>
+        <input type="text" id="pais-editar">
+        <label for="telefono-editar">Teléfono</label>
+        <input type="text" id="telefono-editar">
+        <label for="movil-editar">Móvil</label>
+        <input type="text" id="movil-editar">
+        <label for="correo-electronico-editar">Correo Electrónico</label>
+        <input type="text" id="correo-electronico-editar">
+       </div>
+      <div class="modal-footer">
+      <button id="btnGuardarEditarCliente" class="modal-close">Guardar</button>
+      <button id="btn-volver"><i class="fas fa-arrow-left"></i> Volver</button>
+  		</div>
+    </div>
+
+<!-- modal para asignar servicios a los clientes -->
+    <div id="modal-asignar-servicios" class="hide">
+      <div class="modal-content">
+        <h4>Asignar Servicios al Cliente</h4>
+        <p><i class="fa-solid fa-user-large"></i></p>
+        
+        <div class="contendor-inputs">
+          <label for="id-cliente">Id</label>
+          <input type="text" id="id-cliente" required>
+        </div>
+        <div class="contendor-inputs">
+          <label for="nombre-cliente">Nombre</label>
+          <input type="text" id="nombre-cliente" required>
+        </div>
+        <div class="contendor-inputs">
+          <label for="servicios-cliente">Servicios</label>
+          <select id="servicios-cliente" multiple>
+            <option value="">Selecciona un servicio</option>
+      <!-- Aquí se cargarán los servicios dinámicamente mediante JavaScript -->
+          </select>
+        </div>
+        <!-- input type hidden para guardar el id del cliente -->
+        <!-- <input type="hidden" id="id-cliente-hidden"> -->
+      </div>
+      <div class="modal-footer">
+        <button class="btnGuardarAsignarServicios"> <i class="fas fa-save"></i>Guardar</button>
+        <button class="btn-cancelar"> <i class="fas fa-times"></i>Cancelar</button>
+      </div>
+      </div>
+  
+  </div>
+  <footer></footer>
+
+  <script>
+		$(function(){
+      // Ocultar el nav principal
+			 $('#navPrincipal').hide();
+			 // ocultar el nav de servicios
+			$('#nav_servicios').hide();
+      // Mostrar el nav de clientes
+      $('#nav-clientes').show();
+			// Cargar la página de clientes en #seccion_izquierda
+			$("#seccion_izquierda").load("index.html  #seccion_izquierda > *"); 
+			 // Cargar el pie de página de index.html al final de clientes.html
+			 $("footer").load("index.html footer > *");
+		});
+    </script>
+
+  </body>
+</html>
+                
+
+   
+
+
+
+
+
+
+

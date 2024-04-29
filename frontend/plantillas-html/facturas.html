@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  		<!-- estilos de font-awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      <!-- estilos de favicion -->
+      <link rel="icon" type="image/png" href="../img/factura.png">
+      <!-- estilos de css -->
+      <link rel="stylesheet" href="../css/facturas.css">
+      <link rel="stylesheet" href="../css/main.css">
+			<!-- <link rel="stylesheet" href= "../css/servicios.css"> -->
+      <!-- script de alertas -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script type="module"  src="../js/alertas.js" defer></script>
+      <!-- scripts de servicios js -->
+			<script type="module" src="../js/servicios.js" defer></script>
+    	<script type="module" src="../js/clientes2.js"  defer></script>
+      <script type="module"  src="../js/facturas.js" defer></script>
+			<script src="../js/index.js" defer></script>
+      <!-- script de jquery -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <title>Facturas</title>
+</head>
+
+<body>
+	
+	<header>
+		<nav id="nav_facturas">
+			<div id="btn-cabecera"> 
+				<button type="button" id="agregar_factura"> Nueva Factura</button>
+    		<button type="button" id="ver-facturas">Facturas</button>
+			</div>
+		</nav>
+	</header>
+	
+	<main class="contenedor-secciones">
+		<!-- aside donde estan los enlaces e iconos para ir a cada pagina -->
+		<div id="seccion_izquierda"></div>
+
+		 <!-- seccion derecha donde se muestra la factura, nueva , todas -->
+		<div id="seccion_derecha">
+			<h1>Facturación Electrónica de limpieza Integral en Barcelona</h1>
+			<span>
+				Todas las facturas de limpieza que ofrecemos tanto a nivel empresarial como particular, se ofrecen en la ciudad de Barcelona y Provincia de forma organizada según tu disposición o de forma urgente u estacional. Con Limcaf la suciedad dejará de ser un problema, ten siempre tu entorno impoluto y saludable.
+				Simplifica tu proceso de facturación con nuestro servicio de facturación electrónica. 
+				Ya sea para grandes empresas o emprendedores individuales, 
+				ofrecemos soluciones personalizadas que se adaptan a tus necesidades. 
+				Olvídate del papeleo y agiliza tus transacciones financieras con nuestro sistema seguro y eficiente.
+			</span>
+		
+			<div>
+				<button type="button" id="descargar_factura">Descargar Factura</button>
+			</div> <!-- Botón de descargar factura -->
+		</div>
+
+
+		<!-- formulario para crear una factura -->
+    <div id="formFactura" class="hide"> 
+			<div class="factura-columna">
+				<label for="idFactura">Factura Número</label>
+				<input type="text" id="idFactura">
+			</div>
+	
+			<div class="encabezado">
+				<div class="datos_cliente">
+					<div class="cliente">
+            <label for="clienteDropdown">Cliente:</label>
+            <select id="clienteDropdown"  placeholder="Seleccionar cliente...">
+              <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+            </select>
+					 </div>
+	
+				<div class="direccion">
+					<label  for="direccion">Direccion:</label>
+					<input  type="text"  id="direccion">
+				</div>
+				</div>
+					<!-- //seccion derecha  -->
+				<div class="datos_factura">
+				<div class="fecha">
+					<label for="fecha">Factura Fecha:</label>
+					<input type="date" id="fecha" required>
+				</div>
+	
+				<div class="referencia">
+					<label   for="referencia">Referencia de Pago:</label>
+					<input  type="text" id="referencia">
+				</div>
+	
+				<div class="vencimiento">
+					<label for="fecha_vencimiento">Fecha de vencimiento:</label>
+					<input type="date" id="fecha_vencimiento"  required>
+			 </div>
+			 </div>
+			</div>
+			<!-- boton para que se vaya agregando una linea en el cuerpo de la factura -->
+			<div class="btn-agregarLinea"> 
+        <span id="agregarLinea"><i class="fa-solid fa-plus"></i> Agregar linea</span>
+      </div>
+			 <!-- cuerpo de la factura -->
+				<div class="detalleFactura">
+					<span class="contenedor-encabezado" >Servicio</span>
+					<span class="contenedor-encabezado" >Descripción</span>
+					<span class="contenedor-encabezado" >Cantidad</span>
+					<span class="contenedor-encabezado" >Precio</span>
+					<span class="contenedor-encabezado">IVA %</span>
+				</div>
+        
+				<div id="nuevosCampos"></div>
+				
+				<div class="calculo">  <!--div para mostrar el calculo de la factura -->
+					<div class="total">
+					<div>Base imponible : <span id="subtotal">0,00€</span></div>
+					<div>IVA(21%): <span id="iva"></span></div>
+					<div>Total: <span id="total">0,00€</span></div>
+					</div>
+				</div>
+
+				<div class="botones_guardarFactura"> <!-- div para los botones de guardar, imprimir y volver -->
+					<button type="button" id="GuardarFactura" onclick="guardarFacturaCliente()">
+						<i class="fa-solid fa-cloud-arrow-up"></i> Guardar
+					</button>
+	
+					<button type="button" id="imprimir">
+						<i class="fa-solid fa-print"></i>Imprimir
+					</button>
+	
+					<button type="button" id="volver">
+						<i class="fa-solid fa-arrow-rotate-left"></i>Volver
+					</button>   
+				</div>
+		
+			
+    </div>
+
+    <!-- contenedor para ver las facturas en la interfaz -->
+    <div id="contenedorFacturasCreadas" class="hide"> 
+			<div class="titulo_facturas_creadas hide" >
+			<h2>Mis Facturas</h2></div>
+      <div id="facturasCreadas" class="hide">
+				<!-- aqui se insertaran las facturas -->
+      </div>
+		</div>	
+
+        
+		<div id="facturasCreadasContenido" class="hide"> <!-- Las facturas creadas se llenarán dinámicamente con JavaScript -->
+    </div>
+    
+      <!-- Modal para editar factura -->
+    <div id="modalEditarFactura" class="hide">
+        <div class="modal-content">
+					<h4>Editando la Factura .....</h4>
+					<p><i class="fa-solid fa-star"></i></p>
+					<div class="input-container">
+						<label for="idFacturaEditar">Número de Factura:</label>
+						<input type="text" id="idFacturaEditar" required>
+					</div>
+					<div class="input-container">
+						<label for="clienteDropdownEditar">Cliente:</label>
+						<select id="clienteDropdownEditar"  placeholder="Seleccionar cliente...">
+							<!-- Las opciones se llenarán dinámicamente con JavaScript -->
+						</select>
+					</div>
+					<div class="input-container">
+						<label for="direccionEditar">Dirección:</label>
+						<input type="text" id="direccionEditar">
+					</div>
+					<div class="input-container">
+						<label for="fechaEditar">Fecha de Factura:</label>
+						<input type="date" id="fechaEditar" required>
+					</div>
+					<div class="input-container">
+						<label for="referenciaEditar">Referencia de Pago:</label>
+						<input type="text" id="referenciaEditar">
+					</div>
+					<div class="input-container">
+						<label for="fechaVencimientoEditar">Fecha de Vencimiento:</label>
+						<input type="date" id="fechaVencimientoEditar" required>
+					</div>
+
+        </div>
+				<div class="modal-footer">
+					<button id="btnGuardarEditarFactura">Guardar</button>
+					<button id="btnVolverFactura"><i class="fas fa-arrow-left"></i> Volver</button>
+     		</div>
+		</div>
+</main>
+<footer></footer>
+
+  
+<script>
+	$(function(){
+		 // Ocultar el nav principal
+		 $('#navPrincipal').hide();
+		 // ocultar el nav de servicios
+		$('#nav_servicios').hide();
+		//ocultar el nav de clientes
+		$('#nav-clientes').hide();
+		// Cargar la página de facturas en #seccion_izquierda
+		$("#seccion_izquierda").load("index.html  #seccion_izquierda > *"); 
+		 // Cargar el pie de página de index.html al final de servicios.html
+		 $("footer").load("index.html footer > *");
+	});
+	</script>
+</body>
+</html>
